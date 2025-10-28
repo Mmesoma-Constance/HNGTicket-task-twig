@@ -1,0 +1,83 @@
+{% extends "base.html.twig" %}
+
+{% block title %}TicketHub - Landing{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-background max-w-1440px overflow-hidden">
+
+    {# Decorative Circles and Wave Background #}
+    {% include 'decorative_circles.html.twig' %}
+    {% include 'wave_background.html.twig' %}
+
+    {# Hero Section #}
+    <section class="relative overflow-hidden">
+        <div class="container-app relative z-10 bg-gradient-to-t from-[#e7a5c7aa] via-white to-[#e76fb6aa] p-10 md:p-20">
+            <div class="max-w-3xl mx-auto text-center p-4">
+                <header class="text-3xl md:text-4xl font-bold mb-6 leading-tight text-[#E11791]">
+                    TicketHub
+                </header>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight text-center">
+                    Manage Your Support <span class="text-[#E11791]">Tickets Effortlessly</span>
+                </h1>
+                <p class="text-xl mb-8">
+                    TicketHub streamlines your customer support workflow with powerful tools for creating, tracking, and resolving tickets efficiently.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/auth/signup" class="text-lg p-2 px-8 bg-[#E11791] text-white rounded-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">Get Started</a>
+                    <a href="/auth/login" class="text-lg p-2 px-8 bg-gray-500 text-white rounded-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Features Section #}
+    <section class="py-20 relative px-10 bg-[#fce4ef] bg-opacity-20">
+        <div class="container-app">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Powerful Features</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Everything you need to deliver exceptional customer support
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {% set features = [
+                    { 'icon': 'ticket', 'title': 'Ticket Management', 'description': 'Create, assign, and track customer tickets with ease.' },
+                    { 'icon': 'users', 'title': 'Team Collaboration', 'description': 'Work together efficiently with role-based permissions.' },
+                    { 'icon': 'bar-chart-3', 'title': 'Analytics', 'description': 'Gain insights with powerful reporting and analytics tools.' },
+                    { 'icon': 'settings', 'title': 'Customization', 'description': 'Easily configure and tailor TicketHub to your workflow.' }
+                ] %}
+
+                {% for feature in features %}
+                    <div class="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 rounded-xl bg-white">
+                        <div class="w-12 h-12 rounded-lg bg-[#E11791] flex items-center justify-center mb-4">
+                            <i data-lucide="{{ feature.icon }}" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
+                        <p class="text-muted-foreground">{{ feature.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {# CTA Section #}
+    <section class="py-20 relative overflow-hidden px-10">
+        <div class="absolute inset-0 bg-[#fce4ef] opacity-40"></div>
+        <div class="container-app relative z-10">
+            <div class="p-10 md:p-12 text-center shadow-2xl border-2 bg-white rounded-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+                <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Join thousands of teams using TicketHub to deliver amazing customer support
+                </p>
+                <a href="/auth/signup" class="text-[15px] md:text-lg p-2 px-8 bg-[#E11791] text-white rounded-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    Create Your Account
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {# Footer #}
+    {% include 'footer.html.twig' %}
+</div>
+{% endblock %}

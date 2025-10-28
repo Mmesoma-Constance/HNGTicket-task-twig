@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Twig App{% endblock %}</title>
+
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Optional: shared navbar section -->
+    {% block header %}{% endblock %}
+
+    <!-- Main content area -->
+    <main class="overflow-hidden">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Optional: shared footer section -->
+    {% block footer %}{% endblock %}
+
+    <!-- Initialize Lucide icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
